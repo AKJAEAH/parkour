@@ -29,18 +29,14 @@ function hareketEt() {
 
     var hareketYonu = 0;
 
-    window.addEventListener("keydown", function(event) {
-        if (event.key === "ArrowRight") {
-            hareketYonu = 1;
-        } else if (event.key === "ArrowLeft") {
-            hareketYonu = -1;
-        }
-    });
-
-    window.addEventListener("keyup", function(event) {
-        if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
-            hareketYonu = 0;
-        }
+    // Dokunmatik olayları dinle
+    oyunAlani.addEventListener("touchstart", function(event) {
+        ziplama = true;
+        oyuncu.style.animation = "ziplamaAnimasyon 0.5s ease-out";
+        setTimeout(function() {
+            oyuncu.style.animation = "none";
+            ziplama = false;
+        }, 300);
     });
 
     if (hareketYonu === 1) {
