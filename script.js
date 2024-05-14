@@ -5,7 +5,7 @@ var skor = 0;
 
 var engelRenkleri = ["kirmizi", "yesil", "mavi"];
 var engelAraligi = [1000, 1500, 2000];
-var hareketHizi = 5;
+var hareketHizi = 10;
 var engeller = [];
 
 var ziplama = false;
