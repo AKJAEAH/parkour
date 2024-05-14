@@ -10,6 +10,11 @@ h1 {
     text-align: center;
 }
 
+.buton {
+    width: 100px;
+    height: auto;
+}
+
 #oyunAlani {
     width: 100%;
     height: 400px;
