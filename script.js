@@ -25,18 +25,30 @@ function randomEngelOlustur() {
 function hareketEt() {
     requestAnimationFrame(hareketEt);
 
-    if (ziplama) return;
-
     var hareketYonu = 0;
 
     // Dokunmatik olayları dinle
     oyunAlani.addEventListener("touchstart", function(event) {
-        ziplama = true;
-        oyuncu.style.animation = "ziplamaAnimasyon 0.5s ease-out";
-        setTimeout(function() {
-            oyuncu.style.animation = "none";
-            ziplama = false;
-        }, 300);
+        if (!ziplama) {
+            ziplama = true;
+            oyuncu.style.animation = "ziplamaAnimasyon 0.5s ease-out";
+            setTimeout(function() {
+                oyuncu.style.animation = "none";
+                ziplama = false;
+            }, 300);
+        }
+    });
+
+    // Boşluk tuşunu dinle
+    window.addEventListener("keydown", function(event) {
+        if (event.code === "Space" && !ziplama) {
+            ziplama = true;
+            oyuncu.style.animation = "ziplamaAnimasyon 0.5s ease-out";
+            setTimeout(function() {
+                oyuncu.style.animation = "none";
+                ziplama = false;
+            }, 300);
+        }
     });
 
     if (hareketYonu === 1) {
@@ -71,16 +83,3 @@ setInterval(function() {
     skor++;
     skorElement.textContent = "Skor: " + skor;
 }, 1000);
-
-window.addEventListener("keydown", function(event) {
-    if (event.key === " ") {
-        if (!ziplama) {
-            ziplama = true;
-            oyuncu.style.animation = "ziplamaAnimasyon 0.5s ease-out";
-            setTimeout(function() {
-                oyuncu.style.animation = "none";
-                ziplama = false;
-            }, 300);
-        }
-    }
-});
