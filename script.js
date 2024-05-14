@@ -47,7 +47,7 @@ function hareketEt() {
             setTimeout(function() {
                 oyuncu.style.animation = "none";
                 ziplama = false;
-            }, 300);
+            }, 500);
         }
     });
 
